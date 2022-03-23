@@ -20,6 +20,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-W9-grf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="179"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="3Aj-YF-6au">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="179"/>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XPK-NQ-rsh">
                                         <rect key="frame" x="18" y="115" width="195" height="36"/>
                                         <subviews>
@@ -57,7 +60,11 @@
                                     <constraint firstAttribute="bottomMargin" secondItem="XPK-NQ-rsh" secondAttribute="bottom" constant="20" id="8Zz-5A-63w"/>
                                     <constraint firstItem="Jmg-V2-ti8" firstAttribute="centerX" secondItem="Sdh-W9-grf" secondAttribute="centerX" id="Adk-iy-30q"/>
                                     <constraint firstItem="XPK-NQ-rsh" firstAttribute="leading" secondItem="Sdh-W9-grf" secondAttribute="leadingMargin" constant="10" id="AlF-gA-5no"/>
+                                    <constraint firstItem="3Aj-YF-6au" firstAttribute="leading" secondItem="Sdh-W9-grf" secondAttribute="leading" id="HWj-on-cCU"/>
+                                    <constraint firstItem="3Aj-YF-6au" firstAttribute="top" secondItem="Sdh-W9-grf" secondAttribute="top" id="SQn-xH-vGQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Aj-YF-6au" secondAttribute="trailing" id="U2y-eA-U8A"/>
                                     <constraint firstItem="Jmg-V2-ti8" firstAttribute="top" secondItem="Sdh-W9-grf" secondAttribute="topMargin" id="fBh-bp-gr7"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Aj-YF-6au" secondAttribute="bottom" id="yQU-2k-YfI"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="X8r-rK-1jt">
@@ -241,6 +248,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cloudy" width="170.5" height="170.5"/>
         <image name="humidity" catalog="system" width="128" height="98"/>
         <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="sun.min.fill" catalog="system" width="128" height="121"/>

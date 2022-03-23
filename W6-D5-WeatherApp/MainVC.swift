@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 class MainVC: UIViewController {
-
+    
     @IBOutlet weak var cityNameLabelOutlet: UILabel!
     @IBOutlet weak var editButtonOutlet: UIButton!
     @IBOutlet weak var loaderActivityIndicator: UIActivityIndicatorView!
@@ -33,15 +33,15 @@ class MainVC: UIViewController {
         
         editButtonOutlet.layer.cornerRadius = 12
         cityNameLabelOutlet.text = "Cairo"
-       
+        
         getCityWeatherInfo()
         
         NotificationCenter.default.addObserver(self, selector: #selector(cityChanged), name: NSNotification.Name(rawValue: "cityChangedValue"), object: nil)
         
     }
-
+    
     @objc func cityChanged(notification: Notification) {
-       
+        
         if let city = notification.userInfo?["city"] as? City {
             
             cityNameLabelOutlet.text = city.name
@@ -52,19 +52,19 @@ class MainVC: UIViewController {
     }
     
     @IBAction func editButtonPressed(_ sender: Any) {
-       
+        
         if  let page = storyboard?.instantiateViewController(withIdentifier: "ChangeCityVC") as? ChangeCityVC {
             page.modalPresentationStyle = .popover
-        present(page, animated: true, completion: nil)
+            present(page, animated: true, completion: nil)
         }
     }
     
     func getCityWeatherInfo() {
         
         let parameter = ["id": cityId, "appid": "3e85fdf06c529df1a91a0f648ab5bed1"]
-       // MARK: - Loader Activity Indicator 
+        // MARK: - Loader Activity Indicator
         //        loaderActivityIndicator.isHidden = false
-
+        
         loaderActivityIndicator.hidesWhenStopped = false
         loaderActivityIndicator.startAnimating()
         
@@ -75,13 +75,13 @@ class MainVC: UIViewController {
                 // Temp
                 var temp = main["temp"] as! Double
                 temp = temp - 273.15
-//                temp = Double(round(temp * 1000) / 1000)
+                //                temp = Double(round(temp * 1000) / 1000)
                 temp = round(temp)
                 // MARK: - Loader Activity Indicator
                 self.loaderActivityIndicator.stopAnimating()
                 self.loaderActivityIndicator.hidesWhenStopped = true
-//                self.loaderActivityIndicator.isHidden = true
-               
+                //                self.loaderActivityIndicator.isHidden = true
+                
                 self.tempDegreeLabelOutlet.text = "\(temp)°"
                 // pressure
                 var press = main["pressure"] as! Int

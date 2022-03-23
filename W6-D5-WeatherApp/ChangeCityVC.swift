@@ -21,7 +21,7 @@ class ChangeCityVC: UIViewController {
         City(name: "Suez", id: "359796"),
         City(name: "Arish", id: "361546"),
         City(name: "Mersa Matruh", id: "352733")
-         ]
+    ]
     
     /*
      City => ID
@@ -37,10 +37,10 @@ class ChangeCityVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         citySelectionPickerViewOutlet.delegate = self
         citySelectionPickerViewOutlet.dataSource = self
-
+        
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
@@ -50,25 +50,25 @@ class ChangeCityVC: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-
+    
 }
 
 extension ChangeCityVC: UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return citiesArr.count
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return citiesArr[row].name
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-       
+        
         selectedCity = citiesArr[row]
         
     }
